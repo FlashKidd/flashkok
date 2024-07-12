@@ -63,7 +63,7 @@ function generateRandomUsername($length = 14) {
 
 
 ##############################
-echo "Enter your number without : ";
+echo "Enter your number without 0 : ";
 $handle = fopen("php://stdin", "r");
 $phone_nr = fgets($handle);
 $phone_nr = trim($phone_nr);
