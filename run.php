@@ -75,7 +75,25 @@ $numbt = trim($numbt);
 $numbt++;
 
 $scriptPath = '/data/data/com.termux/files/home/get_otp_124457.sh'; // Adjust this path as necessary
+$otpb == 6
+echo "Fetching otp: \n";
 
+
+
+while($otpb == 6){
+
+
+    // Execute the script and capture the output
+    $output = shell_exec('bash ' . escapeshellarg($scriptPath) . ' 2>&1');
+
+    
+    preg_match('/Your OTP for Lucky Mzansi FreePlay is (\d+)/', $output, $matches);
+        echo htmlspecialchars($matches[1]); 
+        echo htmlspecialchars($matches[2]); 
+        $otpb = htmlspecialchars($matches[1]);
+// Display only the OTP
+    
+}
 $g = 1;
 while($g  < $numbt){
 	$xcg = @unlink('cookie.txt');
@@ -123,12 +141,12 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_POSTFIELDS, '_token='.$tk.'&email=0'.$phone_nr.'');
 $curl = curl_exec($ch);
 curl_close($ch);
-
+//$otp == 6
 echo "Fetching otp: \n";
-$otp = 6;
 
 
-while($otp == 6){
+
+do{
 
 
     // Execute the script and capture the output
@@ -141,7 +159,7 @@ while($otp == 6){
         $otp = htmlspecialchars($matches[1]);
 // Display only the OTP
     
-}
+}while($otp == $otpb);
 //echo "Otpp: $otp\n"; 
 
 //echo $curl;
