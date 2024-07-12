@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+date_default_timezone_set('Asia/Jakarta');
+
 system("clear");
 echo "\033[1;34m-------[AIRTIME SCRIPT]-------
 \033[0;31mDEVELOPER     :  theflashxD
@@ -9,8 +12,6 @@ TELEGRAM      :  @Monkey_dxD
 echo ">. Press Enter To Continue\n";
 $handle = fopen ("php://stdin","r");
 $line = fgets($handle);
-error_reporting(0);
-date_default_timezone_set('Asia/Jakarta');
 
 function GetStr($string, $start, $end) {
     $str = explode($start, $string);
