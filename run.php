@@ -122,7 +122,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_POSTFIELDS, '_token='.$tk.'&email=0'.$phone_nr.'');
 $curl = curl_exec($ch);
 curl_close($ch);
-$otp == 6
+$otp == 6;
 echo "Fetching otp: \n";
 
 
