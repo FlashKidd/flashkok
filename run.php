@@ -75,7 +75,7 @@ $numbt = trim($numbt);
 $numbt++;
 
 $scriptPath = '/data/data/com.termux/files/home/get_otp_124457.sh'; // Adjust this path as necessary
-$otpb == 6
+$otpb == 6;
 echo "Fetching otp: \n";
 
 
