@@ -77,6 +77,7 @@ $numbt++;
 $scriptPath = '/data/data/com.termux/files/home/get_otp_124457.sh'; // Adjust this path as necessary
 $g = 1;
 while($g  < $numbt){
+echo "\033[0;31mRound: $g of $numbt\n";
 	$xcg = @unlink('cookie.txt');
 	
 	$username =  generateRandomUsername();
@@ -124,7 +125,7 @@ echo "Fetching otp: \n";
 
 $otp = "";
 
-
+sleep(10);
 
     
     $output = shell_exec('bash ' . escapeshellarg($scriptPath) . ' 2>&1');
@@ -271,7 +272,7 @@ for ($i=0;$i<3;$i++){
 //return;
 #############
 
-echo "\033[0;31mRound: $g\n";
+
 $startTime = time(); 
 
 while (time() - $startTime < 60) { 
