@@ -122,28 +122,25 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_POSTFIELDS, '_token='.$tk.'&email=0'.$phone_nr.'');
 $curl = curl_exec($ch);
 curl_close($ch);
-$otp == 6;
+
 echo "Fetching otp: \n";
 
 
-
+$otp = "";
 do{
 
 
-    // Execute the script and capture the output
+    
     $output = shell_exec('bash ' . escapeshellarg($scriptPath) . ' 2>&1');
 
     
     preg_match('/Your OTP for Lucky Mzansi FreePlay is (\d+)/', $output, $matches);
         echo htmlspecialchars($matches[1]); 
-        echo htmlspecialchars($matches[2]); 
         $otp = htmlspecialchars($matches[1]);
-// Display only the OTP
     
-}while($otp == 6);
-//echo "Otpp: $otp\n"; 
-sleep(30);
-//echo $curl;
+}while($otp == "");
+
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://games.play.mtn.co.za/submitotp');
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -158,8 +155,9 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_POSTFIELDS, '_token='.$tk.'&email=27'.$phone_nr.'&password='.$otp.'');
-$curl = curl_exec($ch);
+echo $curl = curl_exec($ch);return;
 curl_close($ch);
+	
 #############
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://games.play.mtn.co.za/player-details');
