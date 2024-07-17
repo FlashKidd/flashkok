@@ -155,7 +155,11 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_POSTFIELDS, '_token='.$tk.'&email=27'.$phone_nr.'&password='.$otp.'');
-echo $curl = curl_exec($ch);return;
+$curl = curl_exec($ch);
+if (!strpos($curl, "CREATE A USERNAME")) {
+    echo "Some error, Retrying...";
+	continue;
+}
 curl_close($ch);
 	
 #############
