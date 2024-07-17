@@ -279,7 +279,7 @@ while (time() - $startTime < 60) {
     echo (time() - $startTime + 1) . "\n"; 
     sleep(1); 
 }
-?>
+
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://games.play.mtn.co.za/profile/edit');
