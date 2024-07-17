@@ -98,11 +98,7 @@ curl_close($ch);
 
 $tk  = "";
 $tk = trim(strip_tags(getStr($curl,'name="_token" value="','"')));
-if ($tk ==$tkb4){
-	@unlink('cookie.txt');
-	echo "Cool Off Round\n";
-	}
-$tkb4 = $tk;
+
 //echo "<br>Token $tk";
 echo "\033[1;32mToken: $tk\n";
 #####################################################
@@ -127,7 +123,7 @@ echo "Fetching otp: \n";
 
 
 $otp = "";
-do{
+
 
 
     
@@ -138,7 +134,7 @@ do{
         echo htmlspecialchars($matches[1]); 
         $otp = htmlspecialchars($matches[1]);
     
-}while($otp == "");
+
 
 
 $ch = curl_init();
@@ -277,7 +273,14 @@ for ($i=0;$i<3;$i++){
 #############
 
 echo "\033[0;31mRound $g\n";
-sleep(60);///wait for winning sms to be sent
+$startTime = time(); 
+
+while (time() - $startTime < 60) { 
+    echo (time() - $startTime + 1) . "\n"; 
+    sleep(1); 
+}
+?>
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://games.play.mtn.co.za/profile/edit');
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -342,7 +345,7 @@ curl_close($ch);
 ##############
 
 
-//echo "\033[0;31mDone, re-running\n";
+
 $xcg;
 
 $xcg;
