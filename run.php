@@ -155,70 +155,7 @@ $curl = curl_exec($ch);
 
 curl_close($ch);
 if (!strpos($curl, "CREATE A USERNAME")) {
-    echo "Some error, Retrying...";
-	$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://games.play.mtn.co.za/profile/edit');
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-$headers = array();
-$headers[] = 'User-Agent: Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36';
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-$curl = curl_exec($ch);
-curl_close($ch);
-####################
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://games.play.mtn.co.za/profile/'.$unique_id.'');
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-curl_setopt($ch, CURLOPT_POST, 1);
-$headers = array();
-$headers[] = 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary8iVJ5rFZ9hx7v3Qs';
-$headers[] = 'User-Agent: Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36';
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundary8iVJ5rFZ9hx7v3Qs
-Content-Disposition: form-data; name="_method"
-
-PUT
-------WebKitFormBoundary8iVJ5rFZ9hx7v3Qs
-Content-Disposition: form-data; name="_token"
-
-'.$tk.'
-------WebKitFormBoundary8iVJ5rFZ9hx7v3Qs
-Content-Disposition: form-data; name="profile_picture"
-
-
-------WebKitFormBoundary8iVJ5rFZ9hx7v3Qs
-Content-Disposition: form-data; name="user_id"
-
-'.$unique_id.'
-------WebKitFormBoundary8iVJ5rFZ9hx7v3Qs
-Content-Disposition: form-data; name="player_name"
-
-'.$username.'
-------WebKitFormBoundary8iVJ5rFZ9hx7v3Qs
-Content-Disposition: form-data; name="mobile_number"
-
-27788'.rand(100000, 999999).'
-------WebKitFormBoundary8iVJ5rFZ9hx7v3Qs
-Content-Disposition: form-data; name="is_new_game_notification_on"
-
-1
-------WebKitFormBoundary8iVJ5rFZ9hx7v3Qs--');
-$curl = curl_exec($ch);
-curl_close($ch);
-	continue;
-	
+    echo "Some error, Retrying...\n";	
 }	
 #############
 $ch = curl_init();
@@ -334,12 +271,13 @@ for ($i=0;$i<3;$i++){
 //return;
 #############
 
-echo "\033[0;31mRound $g\n";
+echo "\033[0;31mRound: $g\n";
 $startTime = time(); 
 
 while (time() - $startTime < 60) { 
-    echo (time() - $startTime + 1) . "\n"; 
+    echo (time() - $startTime + 1) . " seconds left\n"; 
     sleep(1); 
+	system("clear");
 }
 
 
@@ -412,5 +350,6 @@ $xcg;
 
 $xcg;
 $g++;
+system("clear");
 
 }
