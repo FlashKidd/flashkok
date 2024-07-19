@@ -76,6 +76,7 @@ $numbt++;
 
 $scriptPath = '/data/data/com.termux/files/home/get_otp_124457.sh'; // Adjust this path as necessary
 $g = 1;
+$counter = 1;
 while($g  < $numbt){
 echo "\033[0;31mRound: $g of $numbt\n";
 	$xcg = @unlink('cookie.txt');
@@ -120,6 +121,13 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, '_token='.$tk.'&email=0'.$phone_nr.'');
 $curl = curl_exec($ch);
 curl_close($ch);
 
+if ($counter % 2 == 0) {
+        $counter++; 
+        continue;
+    }
+
+
+    $counter++;
 echo "Fetching otp: \n";
 
 
@@ -134,10 +142,9 @@ sleep(10);
     preg_match('/Your OTP for Lucky Mzansi FreePlay is (\d+)/', $output, $matches);
         echo htmlspecialchars($matches[1]); 
         $otp = htmlspecialchars($matches[1]);
-        
-        if (empty($otp)){
-            continue;
-        }
+
+           
+
         system("clear");
     }
 
