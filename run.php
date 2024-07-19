@@ -127,14 +127,15 @@ $otp = "";
 
 sleep(10);
 
-    
+    for ($i = 0; $i<2;$i++){
     $output = shell_exec('bash ' . escapeshellarg($scriptPath) . ' 2>&1');
 
     
     preg_match('/Your OTP for Lucky Mzansi FreePlay is (\d+)/', $output, $matches);
         echo htmlspecialchars($matches[1]); 
         $otp = htmlspecialchars($matches[1]);
-    
+        system("clear");
+    }
 
 
 
@@ -156,7 +157,7 @@ $curl = curl_exec($ch);
 
 curl_close($ch);
 if (!strpos($curl, "CREATE A USERNAME")) {
-    echo "Some error, Occured...\n";	
+    echo "\nSome error, Occured...\n";	
 }	
 #############
 $ch = curl_init();
