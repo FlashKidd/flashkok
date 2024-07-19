@@ -134,6 +134,10 @@ sleep(10);
     preg_match('/Your OTP for Lucky Mzansi FreePlay is (\d+)/', $output, $matches);
         echo htmlspecialchars($matches[1]); 
         $otp = htmlspecialchars($matches[1]);
+        
+        if (empty($otp)){
+            continue;
+        }
         system("clear");
     }
 
