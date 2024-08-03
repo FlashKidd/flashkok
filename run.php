@@ -292,13 +292,7 @@ for ($i=0;$i<3;$i++){
 #############
 
 
-$startTime = time(); 
 
-while (time() - $startTime < 60) { 
-    echo (time() - $startTime + 1) . " of 60.\n"; 
-    sleep(1); 
-	system("clear");
-}
 
 
 $ch = curl_init();
