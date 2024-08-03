@@ -141,6 +141,7 @@ sleep(10);
     
     preg_match('/Your OTP for Lucky Mzansi FreePlay is (\d+)/', $output, $matches);
         echo htmlspecialchars($matches[1]); 
+	echo "\n";
         $otp = htmlspecialchars($matches[1]);
 
            
@@ -279,6 +280,12 @@ for ($i=0;$i<3;$i++){
         }else{
             echo "\033[0;31mL, maybe next time?\n";
         }
+	$startTime = time(); 
+	while (time() - $startTime < 60) { 
+    	echo (time() - $startTime + 1) . " of 60.\n"; 
+    		sleep(1); 
+	system("clear");
+}
 }
 }
 //return;
