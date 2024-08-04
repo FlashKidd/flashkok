@@ -277,15 +277,16 @@ for ($i=0;$i<3;$i++){
         curl_close($ch);
         if (strpos($curl, "Score info is stored successfully")) {
             echo "\033[1;32mHeist executed!\n";
-        }else{
-            echo "\033[0;31mL, maybe next time?\n";
-        }
-	$startTime = time(); 
+		$startTime = time(); 
 	while (time() - $startTime < 60) { 
     	echo (time() - $startTime + 1) . " of 60.\n"; 
     		sleep(1); 
 	system("clear");
-}
+	}
+        }else{
+            echo "\033[0;31mL, maybe next time?\n";
+        }
+	
 }
 }
 //return;
